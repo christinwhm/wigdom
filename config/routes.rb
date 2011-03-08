@@ -1,4 +1,6 @@
 Wigdom::Application.routes.draw do
+  get "contact", :to => "pages#contact"
+
   root :to => "products#index"
 
   namespace :admin do
