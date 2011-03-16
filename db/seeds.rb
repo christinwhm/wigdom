@@ -6,4 +6,4 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-User.create(:email => "hao@wigdom.com", :password => "foobar", :password_confirmation => "foobar")
+Admin.create(:email => "hao@wigdom.com", :password => "foobar", :password_confirmation => "foobar")

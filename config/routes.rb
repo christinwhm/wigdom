@@ -1,13 +1,16 @@
 Wigdom::Application.routes.draw do
+  devise_for :admins
+
   get "contact", :to => "pages#contact"
 
   root :to => "products#index"
 
+  resources :messages, :only => [:create]
+
   namespace :admin do
     resources :products
+    resources :messages, :only => [:index, :show, :destroy]
   end
-
-  devise_for :users
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

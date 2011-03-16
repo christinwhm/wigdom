@@ -1,43 +1,44 @@
 class Admin::ProductsController < ApplicationController
-	before_filter :authenticate_user!
+  layout "admin"
+  before_filter :authenticate_admin!
 
   def index
-		@products = current_user.products
+    @products = Product.all
   end
 
   def new
-		@product = current_user.products.new
+    @product = Product.new
   end
 
   def create
-		@product = current_user.products.new(params[:product])
+    @product = Product.new(params[:product])
 
     if @product.save
-			redirect_to admin_products_url, :notice => "Done creating the new product!"
+      redirect_to admin_products_url, :notice => "Done creating the new product!"
     else
       render :action => "new"
     end
   end
 
   def edit
-		@product = current_user.products.find(params[:id])
+    @product = Product.find(params[:id])
   end
 
   def update
-		@product = current_user.products.find(params[:id])
+    @product = Product.find(params[:id])
 
     if @product.update_attributes(params[:product])
-			redirect_to admin_products_url, :notice => "Done updating the product"
-		else
-			render :action => "edit"
+      redirect_to admin_products_url, :notice => "Done updating the product"
+    else
+      render :action => "edit"
     end
   end
 
   def destroy
-		@product = current_user.products.find(params[:id])
+    @product = Product.find(params[:id])
 
-		@product.destroy
+    @product.destroy
 
-		redirect_to admin_products_url, :notice => "Done destroying the product"
+    redirect_to admin_products_url, :notice => "Done destroying the product"
   end
 end
