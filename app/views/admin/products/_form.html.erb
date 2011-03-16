@@ -22,6 +22,13 @@
   </div>
 
   <div class="field">
+    <%= label_tag :category_ids, "Categories" %><br />
+    <% Category.all(:order => "name").each do |category| %>
+      <%= check_box_tag("product[category_ids][]", category.id, @product.categories.include?(category)) + category.name  %>
+    <% end %>
+  </div>
+
+  <div class="field">
     <%= f.label :image %><br />
     <%= f.file_field :image %>
   </div>
