@@ -8,6 +8,7 @@ class Admin::CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @others = Category.all
   end
 
   def create
