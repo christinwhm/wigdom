@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to root_url, :notice => "Done posting the message."
     else
-      render :action => "new"
+      redirect_to contact_url, :alert => "Failed posting the message."
     end
   end
 end

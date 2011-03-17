@@ -1,7 +1,7 @@
 Wigdom::Application.routes.draw do
   devise_for :admins
 
-  get "contact", :to => "pages#contact"
+  get "contact", :to => "pages#contact", :as => "contact"
 
   root :to => "products#index"
 
