@@ -1,8 +1,10 @@
 class CategoriesController < ApplicationController
-  layout false
-
   def show
-    category = Category.find(:first, :conditions => ["name=?", params[:id]])
+    category = Category.find(params[:id])
     @products = Product.by_category(category)
+
+    if request.xhr?
+      render :layout => false
+    end
   end
 end

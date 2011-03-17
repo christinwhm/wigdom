@@ -5,7 +5,7 @@
         $("#categories").treeview();
         $("#categories a").live("click", function() {
             $.ajax({
-                url: "/categories/" + $(this).html(),
+                url: $(this).attr("href"),
                 type: "get",
                 dataType: "html",
                 success: function(data) {
