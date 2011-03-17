@@ -1,0 +1,7 @@
+<ul id='products'>
+  <% @products.each do |product| %>
+    <li data-id='<%= product.id%>'>
+      <%= image_tag product.image.url(:thumb) %>
+    </li>
+  <% end %>
+</ul>

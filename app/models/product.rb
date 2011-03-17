@@ -4,17 +4,22 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :description
+  validates_presence_of :categories
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_presence :image
   validates_attachment_size :image, :less_than => 5.megabytes
   validates_attachment_content_type :image, :content_type => ['image/jpg', 'image/jpeg', 'image/pjpeg', 'image/gif', 'image/png', 'image/x-png']
 
+  def self.by_category(category)
+    products = category.products
 
-  def before_save
-    if self.categories.empty?
-      errors.add(:base, "Product should have at least one category.")
-      return false
+    if category.children.any?
+      category.children.each do |child|
+        products += Product.by_category(child)
+      end
     end
+
+    products.uniq
   end
 end

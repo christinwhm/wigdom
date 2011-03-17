@@ -1,4 +1,35 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag "jquery.treeview", "jquery.quicksand"%>
+  <script type='text/javascript'>
+    $(function() {
+        $("#categories").treeview();
+        $("#categories a").live("click", function() {
+            $.ajax({
+                url: "/categories/" + $(this).html(),
+                type: "get",
+                dataType: "html",
+                success: function(data) {
+                    $('#products').quicksand( $(data).find('li'), { adjustHeight: 'dynamic' } );
+                }
+            });
+            return false;
+         });
+    });
+  </script>
+<% end %>
+
 <h1>Products</h1>
 
-<% @products.each do |product| %>
-<% end %>
+<ul id='categories' class='filetree'>
+  <% Category.roots.each do |root| %>
+    <%= treeview(root) %>
+  <% end %>
+</ul>
+
+<ul id='products'>
+  <% @products.each do |product| %>
+    <li data-id='<%= product.id%>'>
+      <%= image_tag product.image.url(:thumb) %>
+    </li>
+  <% end %>
+</ul>

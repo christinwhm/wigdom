@@ -4,6 +4,7 @@
   <title>Wigdom</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag "jquery.min", "rails", "application" %>
+  <%= yield :head %>
   <%= csrf_meta_tag %>
 </head>
 <body>
@@ -17,7 +18,7 @@
   <%= yield %>
 
   <hr>
-  <a href="/contact">Contact Us</a>&nbsp;|&nbsp;<a href="/admins/sign_in">Sign in</a>
+  <a href="/contact">Contact Us</a>&nbsp;|&nbsp;<a href="/admin">Admin</a>
 
 </body>
 </html>
