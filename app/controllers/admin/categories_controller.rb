@@ -5,7 +5,6 @@ class Admin::CategoriesController < AdminController
 
   def new
     @category = Category.new
-    @others = Category.all
   end
 
   def create
@@ -20,7 +19,6 @@ class Admin::CategoriesController < AdminController
 
   def edit
     @category = Category.find(params[:id])
-    @others = Category.all - [@category]
   end
 
   def update

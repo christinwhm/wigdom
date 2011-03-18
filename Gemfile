@@ -11,7 +11,6 @@ gem 'devise'
 gem 'cancan'
 gem 'paperclip'
 gem 'jquery-rails'
-gem 'acts_as_tree'
 gem 'tiny_mce'
 
 # Use unicorn as the web server

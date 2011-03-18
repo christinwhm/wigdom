@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/FreakyDazio/awesome_nested_set.git
+  revision: 286aa1da6df6422ae158d5c92227d6211e9feaf1
+  specs:
+    awesome_nested_set (1.4.3)
+      activerecord (>= 1.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -28,7 +35,6 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    acts_as_tree (0.1.1)
     arel (2.0.9)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
@@ -100,7 +106,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_tree
+  awesome_nested_set!
   cancan
   devise
   jquery-rails
