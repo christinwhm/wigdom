@@ -14,10 +14,8 @@ class Product < ActiveRecord::Base
   def self.by_category(category)
     products = category.products
 
-    if category.children.any?
-      category.children.each do |child|
-        products += Product.by_category(child)
-      end
+    category.children.each do |child|
+      products += Product.by_category(child)
     end
 
     products.uniq
