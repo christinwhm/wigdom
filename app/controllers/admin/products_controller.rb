@@ -1,7 +1,4 @@
-class Admin::ProductsController < ApplicationController
-  layout "admin"
-  before_filter :authenticate_admin!
-
+class Admin::ProductsController < AdminController
   uses_tiny_mce :only => [:new, :edit]
 
   def index

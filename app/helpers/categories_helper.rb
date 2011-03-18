@@ -1,17 +1,17 @@
 module CategoriesHelper
-  def treeview(node)
+  def treeview(category)
     output = "<li>"
 
-    if node.children.any?
-      output << "<span class='folder'>#{link_to(node.name, node)}</span>"
+    if category.children.any?
+      output << "<span class='folder'>#{link_to(category.name, category)}</span>"
 
-      node.children.each{|child_node|
+      category.children.each{|child_category|
         output << "<ul>"
-        output << treeview( child_node )
+        output << treeview( child_category )
         output << "</ul>"
       }
     else
-      output << "<span class='file'>#{link_to(node.name, node)}</span>"
+      output << "<span class='file'>#{link_to(category.name, category)}</span>"
     end
 
     output << "</li>"
