@@ -8,19 +8,30 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-  <%= link_to "Product", products_path %>
-  <hr>
+  <div id="header" class="container_12">
+    <div class="grid_3 ">
+      Here comes the logo
+    </div>
 
-  <% if notice %>
-    <p class="notice"><%= notice %></p>
-  <% elsif alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
+    <div class="grid_9 ">
+      <%= link_to "Product", products_path %>
+    </div>
+  </div>
 
-  <%= yield %>
+  <div id="content" class="container_12">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
-  <hr>
-  <a href="/contact">Contact Us</a>&nbsp;|&nbsp;<a href="/admin">Admin</a>
+    <%= yield %>
+  </div>
 
+  <div id="footer" class="container_12">
+    <div class="grid_12 ">
+      <a href="/contact">Contact Us</a> | <a href="/admin">Admin</a>
+    </div>
+  </div>
 </body>
 </html>
