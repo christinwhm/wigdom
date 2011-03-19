@@ -1,20 +1,13 @@
 Here comes the contact information
 
-<%= form_for Message.new do |f| %>
-  <p>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </p>
+<%= semantic_form_for Message.new do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :email, :as => :email, :required => true %>
+    <%= f.input :body, :as => :text, :required => true %>
+  <% end %>
 
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-
-  <%= f.submit "Done"%>
+  <%= f.buttons do %>
+    <%= f.commit_button "Done"%>
+  <% end %>
 <% end %>

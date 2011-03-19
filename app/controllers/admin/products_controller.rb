@@ -1,5 +1,5 @@
 class Admin::ProductsController < AdminController
-  uses_tiny_mce :only => [:new, :edit]
+  uses_tiny_mce :only => [:new, :edit, :create, :update]
 
   def index
     @products = Product.all

@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name
   validates_presence_of :description
-  validates_presence_of :categories
+  validates_presence_of :category_ids
 
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   validates_attachment_presence :image

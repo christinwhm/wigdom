@@ -1,39 +1,13 @@
-<%= form_for([:admin, @product], :html => {:multipart => true}) do |f| %>
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% @product.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+<%= semantic_form_for([:admin, @product], :html => {:multipart => true}) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name, :required => true %>
+    <%= f.input :description, :required => true, :input_html => {:class => "mceEditor"} %>
+    <%= f.input :category_ids, :label => "Categories", :as => :check_boxes, :collection => Category.leaves(:order => "name"), :required => true %>
+    <%= f.input :image, :as => :file, :required => true %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
+  <%= f.buttons do %>
+    <%= f.commit_button "Done" %>
+  <% end %>
 
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description, :class => "mceEditor" %>
-  </div>
-
-  <div class="field">
-    <%= label_tag :category_ids, "Categories" %><br />
-    <% Category.leaves(:order => "name").each do |category| %>
-      <%= check_box_tag("product[category_ids][]", category.id, @product.categories.include?(category)) + category.name  %>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
 <% end %>

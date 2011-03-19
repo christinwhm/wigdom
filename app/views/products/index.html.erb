@@ -18,7 +18,7 @@
   </script>
 <% end %>
 
-<div id='sidebar' class="grid_3 ">
+<div id='sidebar' class="grid_3">
   <ul id='categories' class='filetree grid_3'>
     <% Category.roots.each do |root| %>
       <%= treeview(root) %>
@@ -26,7 +26,7 @@
   </ul>
 </div>
 
-<div class="grid_9 ">
+<div id='main' class="grid_9">
   <ul id='products'>
     <% @products.each do |product| %>
       <li data-id='<%= product.id%>'>
