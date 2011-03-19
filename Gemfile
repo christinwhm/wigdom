@@ -12,7 +12,6 @@ gem 'cancan'
 gem 'paperclip'
 gem 'jquery-rails'
 gem 'tiny_mce'
-gem 'tabulous'
 
 # Use unicorn as the web server
 # gem 'unicorn'
