@@ -13,6 +13,8 @@ gem 'paperclip'
 gem 'jquery-rails'
 gem 'tiny_mce'
 gem 'formtastic', '~> 1.2.3'
+gem 'recaptcha', :require => 'recaptcha/rails'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'

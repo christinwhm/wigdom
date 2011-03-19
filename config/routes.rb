@@ -2,11 +2,12 @@ Wigdom::Application.routes.draw do
   devise_for :admins
 
   get "contact", :to => "pages#contact", :as => "contact"
+  get "message", :to => "messages#new", :as => "message"
   get "admin", :to => "admin/products#index", :as => "admin"
 
   root :to => "products#index"
   resources :products, :only => [:index, :show]
-  resources :messages, :only => [:create]
+  resources :messages, :only => [:new, :create]
   resources :categories, :only => [:show]
 
   namespace :admin do
