@@ -19,7 +19,7 @@
 <% end %>
 
 <div id='sidebar' class="grid_3">
-  <ul id='categories' class='filetree grid_3'>
+  <ul id='categories' class='filetree'>
     <% Category.roots.each do |root| %>
       <%= treeview(root) %>
     <% end %>

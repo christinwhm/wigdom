@@ -1,8 +1,8 @@
 module Admin::CategoriesHelper
   def category_item(category)
     output = category.name + " "
-    output += link_to("编辑", edit_admin_category_path(category)) + " | "
-    output += link_to("删除", [:admin, category], :method => "delete", :confirm => "您确定么？")
+    output += link_to("edit", edit_admin_category_path(category)) + " | "
+    output += link_to("destroy", [:admin, category], :method => "delete", :confirm => "Are you sure?")
     output.html_safe
   end
 
