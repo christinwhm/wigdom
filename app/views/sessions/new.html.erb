@@ -20,7 +20,7 @@
     <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
   <% end -%>
 
-  <p><%= recaptcha_tags %></p>
+  <p><%= recaptcha_tags :ajax => true %></p>
   <p><%= f.submit "Sign in" %></p>
 <% end %>
 
