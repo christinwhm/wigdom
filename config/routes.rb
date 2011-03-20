@@ -1,5 +1,5 @@
 Wigdom::Application.routes.draw do
-  devise_for :admins
+  devise_for :admins, :controllers => { :sessions => "sessions" }
 
   get "contact", :to => "pages#contact", :as => "contact"
   get "message", :to => "messages#new", :as => "message"

@@ -1,0 +1,27 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "validator.min" %>
+  <script type='text/javascript'>
+    $(function() {
+        $("#sign_in_form").validator();
+    });
+  </script>
+<% end %>
+
+<h2>Sign in</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => "sign_in_form"}) do |f| %>
+  <p><%= f.label :email %><br />
+  <%= f.text_field :email, :required => true %></p>
+
+  <p><%= f.label :password %><br />
+  <%= f.password_field :password, :required => true %></p>
+
+  <% if devise_mapping.rememberable? -%>
+    <p><%= f.check_box :remember_me %> <%= f.label :remember_me %></p>
+  <% end -%>
+
+  <p><%= recaptcha_tags %></p>
+  <p><%= f.submit "Sign in" %></p>
+<% end %>
+
+<%= render :partial => "devise/shared/links" %>
