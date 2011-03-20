@@ -7,7 +7,7 @@
   </script>
 <% end %>
 
-<%= semantic_form_for Message.new, :html => {:id => "message_form"} do |f| %>
+<%= semantic_form_for @message, :html => {:id => "message_form"} do |f| %>
   <%= f.inputs do %>
     <%= f.input :name, :required => true, :input_html => {:required => true} %>
     <%= f.input :email, :as => :email, :required => true, :input_html => {:required => true} %>
