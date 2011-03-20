@@ -2,6 +2,7 @@ Wigdom::Application.routes.draw do
   devise_for :admins, :controllers => { :sessions => "sessions" }
 
   get "contact", :to => "pages#contact", :as => "contact"
+  get "about", :to => "pages#about", :as => "about"
   get "message", :to => "messages#new", :as => "message"
   get "admin", :to => "admin/products#index", :as => "admin"
 

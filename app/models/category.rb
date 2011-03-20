@@ -1,5 +1,5 @@
 class Category < ActiveRecord::Base
-  acts_as_nested_set
+  acts_as_nested_set :dependent => :destroy
 
   validates_presence_of :name
   validates_uniqueness_of :name, :scope => :parent_id
@@ -11,7 +11,7 @@ class Category < ActiveRecord::Base
   private
   def loop
     if self.ancestors.include? self
-      self.errors.add(:parent_id, "不能作为自己的父节点")
+      self.errors.add(:parent_id, "You can not be the parent of yourself.")
     end
   end
 end

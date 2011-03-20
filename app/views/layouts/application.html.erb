@@ -10,7 +10,13 @@
 <body>
   <div id="header" class="container_12">
     <div class="grid_12 ">
-      Here comes the tabs
+      <ul id='nav'>
+        <li><a href='/'>Home</a><li>
+        <li><a href='/about'>About us</a></li>
+        <li><a href='/contact'>Contact us</a></li>
+        <li><a href='/message'>Leave a message</a></li>
+        <li><a href='/admin'>Admin</a></li>
+      </ul>
     </div>
   </div>
 
@@ -22,12 +28,6 @@
     <% end %>
 
     <%= yield %>
-  </div>
-
-  <div id="footer" class="container_12">
-    <div class="grid_12 ">
-      <a href="/admin">Admin</a>
-    </div>
   </div>
 </body>
 </html>
