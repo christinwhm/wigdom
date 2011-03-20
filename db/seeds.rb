@@ -7,3 +7,6 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 Admin.create(:email => "hao@wigdom.com", :password => "foobar", :password_confirmation => "foobar")
+
+Page.create(:name => "contact")
+Page.create(:name => "about")

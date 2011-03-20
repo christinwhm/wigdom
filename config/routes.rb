@@ -14,6 +14,7 @@ Wigdom::Application.routes.draw do
   namespace :admin do
     resources :products
     resources :categories
+    resources :pages, :only => [:index, :edit, :update]
     resources :messages, :only => [:index, :show, :destroy]
   end
 

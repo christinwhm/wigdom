@@ -1,0 +1,20 @@
+<%= content_for :head do %>
+  <%= javascript_include_tag "validator.min" %>
+  <script type='text/javascript'>
+    $(function() {
+        $("#page_form").validator();
+    });
+  </script>
+<% end %>
+
+<h1>Edit Page: <%= @page.name %></h1>
+
+<%= semantic_form_for([:admin, @page], :html => {:id => "page_form"}) do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :body, :required => true, :input_html => {:class => "mceEditor", :required => true} %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button "Done" %>
+  <% end %>
+<% end %>

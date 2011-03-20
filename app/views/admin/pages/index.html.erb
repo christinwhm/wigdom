@@ -1,0 +1,11 @@
+<h1>Listing Pages</h1>
+
+<ul>
+  <% @pages.each do |page| %>
+    <li>
+      <p>
+        <%= link_to page.name, edit_admin_page_url(page) %>
+      </p>
+    </li>
+  <% end %>
+</ul>
