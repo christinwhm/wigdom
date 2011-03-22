@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Wigdom</title>
+  <title>Wigdom: Admin</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery.min", "rails", "application" %>
+  <%= javascript_include_tag "jquery.min", "rails" %>
   <%= include_tiny_mce_if_needed %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
 </head>
 <body>
+  <div id="header" class="container_12">
+    <div class="grid_9">
+      <ul class='nav'>
+        <li><a href='/admin/products'>Product</a><li>
+        <li><a href='/admin/categories'>Category</a></li>
+        <li><a href='/admin/pages'>Page</a></li>
+      </ul>
+    </div>
+    <div class="grid_3">
+      <ul class='nav'>
+        <li><a href='/'>Main</a></li>
+        <li><a href='/admins/sign_out'>Sign out</a></li>
+      </ul>
+    </div>
+  </div>
 
-  <%= link_to "Product", admin_products_path %> |
-  <%= link_to "Category", admin_categories_path %> |
-  <%= link_to "Page", admin_pages_path %>
-  <hr>
+  <div id="content" class="container_12">
+    <% if notice %>
+      <p class="notice"><%= notice %></p>
+    <% elsif alert %>
+      <p class="alert"><%= alert %></p>
+    <% end %>
 
-  <% if notice %>
-    <p class="notice"><%= notice %></p>
-  <% elsif alert %>
-    <p class="alert"><%= alert %></p>
-  <% end %>
-
-  <%= yield %>
-
-  <hr>
-  <a href="/admins/sign_out">Sign out</a> | <a href="/">Main</a>
+    <%= yield %>
+  </div>
 </body>
 </html>

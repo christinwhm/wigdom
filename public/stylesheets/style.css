@@ -1,8 +1,17 @@
-ul#nav {
+ul.nav {
   list-style-type: none;
 }
 
-ul#nav li {
+ul.nav li {
+  margin-right: 20px;
+  float: left;
+}
+
+ul#products {
+  list-style-type: none;
+}
+
+ul#products li {
   margin-right: 20px;
   float: left;
 }
@@ -10,4 +19,22 @@ ul#nav li {
 #header {
   height: 50px;
   background-color: rgba(3, 58, 58, 0.3);
+}
+
+.notice {
+  -moz-border-radius: 8px 8px 8px 8px;
+  background: none repeat scroll 0 0 #E4F6E0;
+  border: 1px solid #C0D8BE;
+  line-height: 16px;
+  margin-bottom: 15px;
+  padding: 1em 19px 1em 12px;
+}
+
+.alert {
+  -moz-border-radius: 8px 8px 8px 8px;
+  background: none repeat scroll 0 0 #FFCCCC;
+  border: 1px solid #C0D8BE;
+  line-height: 16px;
+  margin-bottom: 15px;
+  padding: 1em 19px 1em 12px;
 }

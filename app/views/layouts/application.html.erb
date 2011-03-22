@@ -3,18 +3,22 @@
 <head>
   <title>Wigdom</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery.min", "rails", "application" %>
+  <%= javascript_include_tag "jquery.min", "rails" %>
   <%= yield :head %>
   <%= csrf_meta_tag %>
 </head>
 <body>
   <div id="header" class="container_12">
-    <div class="grid_12 ">
-      <ul id='nav'>
+    <div class="grid_9">
+      <ul class='nav'>
         <li><a href='/'>Home</a><li>
         <li><a href='/about'>About us</a></li>
         <li><a href='/contact'>Contact us</a></li>
         <li><a href='/message'>Leave a message</a></li>
+      </ul>
+    </div>
+    <div class="grid_3">
+      <ul class='nav'>
         <li><a href='/admin'>Admin</a></li>
       </ul>
     </div>

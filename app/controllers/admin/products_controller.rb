@@ -1,4 +1,6 @@
 class Admin::ProductsController < AdminController
+  before_filter :category_required, :only => [:new, :edit, :create, :update]
+
   uses_tiny_mce :only => [:new, :edit, :create, :update]
 
   def index
@@ -43,5 +45,12 @@ class Admin::ProductsController < AdminController
     @product.destroy
 
     redirect_to admin_products_url, :notice => "Done destroying the product"
+  end
+
+  private
+  def category_required
+    if Category.count == 0
+      redirect_to new_admin_category_path, :alert => "You need to create at least one category first!"
+    end
   end
 end

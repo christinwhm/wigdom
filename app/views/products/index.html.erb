@@ -12,13 +12,18 @@
                     $('#products').quicksand( $(data).find('li'), { adjustHeight: 'dynamic' } );
                 }
             });
+
+            $("div#title").html('<h1>All the products: '+$(this).html()+'</h1>');
+
             return false;
          });
     });
   </script>
 <% end %>
 
-<div id='sidebar' class="grid_3">
+<div id='title'><h1>All the products</h1></div>
+
+<div class="grid_3">
   <ul id='categories' class='filetree'>
     <% Category.roots.each do |root| %>
       <%= treeview(root) %>
@@ -26,11 +31,11 @@
   </ul>
 </div>
 
-<div id='main' class="grid_9">
+<div class="grid_9">
   <ul id='products'>
     <% @products.each do |product| %>
       <li data-id='<%= product.id%>'>
-        <%= image_tag product.image.url(:thumb) %>
+        <%= link_to image_tag(product.image.url(:thumb), :size => '100x100>'), product %>
       </li>
     <% end %>
   </ul>
