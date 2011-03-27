@@ -6,7 +6,14 @@
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
-Admin.create(:email => "hao@wigdom.com", :password => "foobar", :password_confirmation => "foobar")
+unless Admin.all.map(&:email).include?("hao@wigdom.com")
+  Admin.create(:email => "hao@wigdom.com", :password => "foobar", :password_confirmation => "foobar")
+end
 
-Page.create(:name => "contact")
-Page.create(:name => "about")
+unless Page.all.map(&:name).include?("contact")
+  Page.create(:name => "contact")
+end
+
+unless Page.all.map(&:name).include?("about")
+  Page.create(:name => "about")
+end
